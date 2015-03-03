@@ -78,3 +78,22 @@ img {max-width:100%;}
 body {
     transition: opacity .25s ease;
 }
+span {
+    display: inline-block;
+}
+
+.teacher {
+    margin: 0 auto 15px;
+    padding: 30px;
+    border: black;
+    border: 10px;
+    width: 60ch;
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
+}
+button {
+    border-radius: 10px;
+}
+input {
+    width: 30ch;
+}
