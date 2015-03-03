@@ -79,7 +79,7 @@ body {
     transition: opacity .25s ease;
 }
 html {
-  background: url(https://ununsplash.imgix.net/photo-1416339684178-3a239570f315?q=75&fm=jpg&s=c39d9a3bf66d6566b9608a9f1f3765afs) no-repeat center center fixed;
+  background: url(https://unsplash.imgix.net/1/irish-hands.jpg?q=75&fm=jpg&s=0b8bb73125fe1ec4828d0048550ae2bd) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -112,5 +112,21 @@ html {
 .button {
     text-align: center;
      display: block;
-    margin-top: 22%;
+    margin-top: 18%;
+}
+
+.menu {
+display: block;
+height: 76px;
+background: #000;
+opacity: 0.8;
+padding: 7px 0 0 7px;
+border: 0px solid #eee;
+line-height: 12px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 10px;
+cursor: default;
+list-style: none;
+margin-top: -310px;
+color: #FFF;
 }
