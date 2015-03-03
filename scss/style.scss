@@ -111,8 +111,27 @@ html {
 
 .button {
     text-align: center;
-     display: block;
+     display: inline-block;
     margin-top: 18%;
+
+}
+.buttons {
+    float: right;
+    font-size: 22px;
+    margin: 10px;
+    padding: 10px;
+    color: #2ecc71;
+    border: 2px #2ecc71 solid;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .3s;
+    text-align: center;
+    display: inline-block;
+    margin-top: 18%;
+    background-color: transparent;
+}
+.lbutton{
+    background-color: transparent;
 }
 
 .menu {
