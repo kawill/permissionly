@@ -22,13 +22,18 @@
         home: function() {
             this.view.render();
         }
-        // singup: function(){}
 
     })
 
     Backbone.HomeModel = Backbone.Model.extend({
         defaults: {
-
+            signUp: false,
+            logIn: false
+        },
+          initialize: function() {
+            this.on("change", function() {
+                this.save();
+            })
         }
     })
 
