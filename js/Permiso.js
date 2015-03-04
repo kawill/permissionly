@@ -15,8 +15,13 @@
         },
 
         routes: {
+            "teacher": "teacherLogin",
             "*default": "home",
         },
+
+        teacherLogin: function() {
+            this.view.render();
+        }
         home: function() {
             this.view.render();
             // this.view2.render(); //Temporary: we'll move the detail view later
@@ -34,16 +39,24 @@
         el: ".container",
         view: "Testtemp",
         events: {
-            "click": "signUp",
-            "click ": "signIn"
+            "click .button": "signUp",
+            "click .buttons": "logIn"
         },
         signUp: function(event) {
             event.preventDefault();
-            console.log(signUp);
+            console.log("Signed Up");
         },
-        signIn: function(event) {
+        logIn: function(event) {
             event.preventDefault();
-            console.log(signIn);
+            console.log("Logged In");
+        }
+    })
+
+    Backbone.LoginView = Backbone.TemplateView.extend ({
+        el: ".container",
+        view: "teacher-login",
+        events: {
+            "click .buttons": ""
         }
     })
 
