@@ -15,25 +15,25 @@
         },
 
         routes: {
-            "teacher": "teacherLogin",
             "*default": "home",
             "signup": "signup"
 
         },
-
-        teacherLogin: function() {
-            this.view.render();
-        }
         home: function() {
             this.view.render();
         }
-        // singup: function(){}
 
     })
 
     Backbone.HomeModel = Backbone.Model.extend({
         defaults: {
-
+            signUp: false,
+            logIn: false
+        },
+          initialize: function() {
+            this.on("change", function() {
+                this.save();
+            })
         }
     })
 
@@ -41,24 +41,16 @@
         el: ".container",
         view: "homeTemp",
         events: {
-            "click .button": "signUp",
-            "click .buttons": "logIn"
+            "click": "signUp",
+            "click ": "signIn"
         },
         signUp: function(event) {
             event.preventDefault();
-            console.log("Signed Up");
+            console.log(signUp);
         },
-        logIn: function(event) {
+        signIn: function(event) {
             event.preventDefault();
-            console.log("Logged In");
-        }
-    })
-
-    Backbone.LoginView = Backbone.TemplateView.extend ({
-        el: ".container",
-        view: "teacher-login",
-        events: {
-            "click .buttons": ""
+            console.log(signIn);
         }
     })
 
