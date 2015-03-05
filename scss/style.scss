@@ -72,15 +72,7 @@ body {
 span {
     display: inline-block;
 }
-.teacher {
-    margin: 0 auto 15px;
-    padding: 30px;
-    border: black;
-    border: 10px;
-    width: 60ch;
-    box-shadow: 0 0 10px black;
-    border-radius: 10px;
-}
+
 button {
     border-radius: 10px;
 }
@@ -137,4 +129,52 @@ html {
     margin-top: -315px;
     color: #FFF;
     text-align: right;
+}
+
+.teacher {
+    margin: 1em auto 15px;
+    padding: 30px;
+    border: black;
+    border: 10px;
+    width: 60ch;
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
+}
+
+.specialexamplemenu {
+    display: block;
+    height: 76px;
+    background: #000;
+    opacity: 0.6;
+    padding: 7px 0 0 7px;
+    border: 0px solid #eee;
+    line-height: 18px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    cursor: default;
+    list-style: none;
+    color: #FFF;
+    text-align: right;
+}
+
+.dashboardmenu {
+    display: block;
+    height: 76px;
+    background: #000;
+    opacity: 0.6;
+    padding: 7px 0 0 7px;
+    border: 0px solid #eee;
+    line-height: 18px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    cursor: default;
+    list-style: none;
+    color: #FFF;
+    text-align: right;
+}
+
+ul {
+    padding: 0;
 }
