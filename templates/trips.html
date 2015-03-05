@@ -1,0 +1,23 @@
+<div class="specialexamplemenu">
+    <div class="pure-menu pure-menu-horizontal">
+        <a href="#" class="pure-menu-heading pure-menu-link">DASHBOARD</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">TRIPS</a>
+            </li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">PARENTS</a>
+            </li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">LOGIN</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<ul>
+    <% data.each(function(trip){ %>
+        <li>
+            <h1><%= trip.get('trip_title') %></h1>
+            <span> ON: <strong> <%= trip.get('date_began') %> </strong></span>
+            <hr>
+        </li>
+    <% }) %>
+</ul>

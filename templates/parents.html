@@ -1,0 +1,26 @@
+<div class="specialexamplemenu">
+    <div class="pure-menu pure-menu-horizontal">
+        <a href="#" class="pure-menu-heading pure-menu-link">DASHBOARD</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">TRIPS</a>
+            </li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">PARENTS</a>
+            </li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">LOGIN</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<ul>
+    <% data.each(function(parent){ %>
+        <li>
+            <h1>Student: <%= parent.get('student_full_name') %> </h1>
+            <h3><strong> Dietary Restrictions: <%= parent.get('health_dietary') %> </strong></h3>
+            <h2>Parent: <%= parent.get('first_name') %> <%= parent.get('last_name') %> </h2>
+            <h2> E-mail: <a href = "mailto:<%= parent.get('email') %>"> <%= parent.get('email') %> </a> </h2>
+            <hr>
+        </li>
+    <% }) %>
+</ul>
+
