@@ -137,7 +137,7 @@ input {
 .button {
     text-align: center;
     display: inline-block;
-    margin-top: 18%;
+    margin-top: 15%; //18%
 }
 .menu {
     display: block;
@@ -152,7 +152,7 @@ input {
     font-size: 14px;
     cursor: default;
     list-style: none;
-    margin-top: -315px;
+    margin-top: -272px; //-315px
     color: #FFF;
     text-align: right;
 }
@@ -269,7 +269,7 @@ header {
     height: 214px;
     position: relative;
 }
-ul#parentslist {
+#parentslist {
     color: #2ecc71;
     position: absolute;
     display: flex;

@@ -66,7 +66,7 @@
             "dashboardex": "dashboardex",
             "trips": "trips",
             "parents": "parents",
-            "addFieldTrip": "addFieldTrip",
+            "addfieldtrip": "addfieldtrip",
             "*default": "home"
         },
         signup: function() {
@@ -83,7 +83,7 @@
             var self = this;
             this.parents.fetch();
         },
-        addFieldTrip: function() {
+        addfieldtrip: function() {
             this.addtripView.render();
             // this.xView.render()
         },
