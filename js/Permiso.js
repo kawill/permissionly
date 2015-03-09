@@ -2,6 +2,37 @@
 (function(exports) {
     "use strict";
 
+    function scrollBodyTo(to, duration, callback) {
+        var start = window.scrollY,
+            change = to - start,
+            currentTime = 0,
+            increment = 20;
+
+        var animateScroll = function() {
+            currentTime += increment;
+            var val = Math.easeInOutQuad(currentTime, start, change, duration);
+            window.scrollTo(0, val);
+            if (currentTime <= duration) {
+                requestAnimationFrame(animateScroll);
+            } else {
+                callback && callback();
+            }
+        };
+        requestAnimationFrame(animateScroll);
+    }
+
+    //t = current time
+    //b = start value
+    //c = change in value
+    //d = duration
+    Math.easeInOutQuad = function(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    };
+
+
     Backbone.PermisoRouter = Backbone.Router.extend({
 
         initialize: function() {
@@ -24,6 +55,8 @@
             this.parentsView = new Backbone.ParentsView({
                 collection: this.parents
             });
+
+            this.addtripView = new Backbone.AddTripView();
 
             Backbone.history.start();
         },
@@ -51,6 +84,7 @@
             this.parents.fetch();
         },
         addFieldTrip: function() {
+            this.addtripView.render();
             // this.xView.render()
         },
         home: function() {
@@ -61,7 +95,32 @@
     Backbone.Session = Backbone.Model.extend({
         defaults: {
             "signup": "false",
-            "login": "not logged in"
+            "login": "not logged in",
+            "addfieldtrip": "false"
+        }
+    })
+
+    Backbone.HomeView = Backbone.TemplateView.extend({
+        el: ".container",
+        view: "homeTemp"
+    })
+
+    Backbone.SignUpView = Backbone.TemplateView.extend({
+        el: ".container",
+        view: "teacher-login",
+        events: {
+            "click #login": "login"
+        },
+        login: function(event) {
+            event.preventDefault();
+            // debugger;
+            var x = {
+                login: this.el.querySelector("input[name='teacher']").value
+            }
+            this.model.add(x, {
+                validate: true
+            });
+            console.log("yay!")
         }
     })
 
@@ -78,6 +137,42 @@
         },
         parse: function(data) {
             return data.trips
+        }
+    })
+
+    Backbone.TripsView = Backbone.TemplateView.extend({
+        el: ".container",
+        view: "tripsview",
+        events: {
+            "click #dashboardex": "dashboardex",
+            "submit form.login": "trips"
+        },
+        dashboardex: function(event) {
+            event.preventDefault();
+        },
+        trips: function(event) {
+            event.preventDefault();
+            var data = {
+                fieldtrips: this.el.querySelector("button[name='John']").value
+            }
+            this.collection.add(data, {
+                validate: true
+            });
+            console.log(data);
+        }
+    })
+
+    Backbone.AddTripView = Backbone.TemplateView.extend({
+        el: ".container",
+        view: "addtrip",
+        events: {
+            "click #addfieldtrip": "addatrip"
+        },
+        addatrip: function(event) {
+            event.preventDefault();
+            var x = {
+                addfieldtrip: this.querySelector("a[name= 'addtripbutton']").value
+            }
         }
     })
 
@@ -108,16 +203,16 @@
         }
     })
 
-    Backbone.TripsView = Backbone.TemplateView.extend({
-        el: ".container",
-        view: "trips",
-        events: {
-            "click #trips": "trips"
-        },
-        trips: function(event) {
-            event.preventDefault();
-        }
-    })
+    // Backbone.TripsView = Backbone.TemplateView.extend({
+    //     el: ".container",
+    //     view: "trips",
+    //     events: {
+    //         "click #trips": "trips"
+    //     },
+    //     trips: function(event) {
+    //         event.preventDefault();
+    //     }
+    // })
 
     Backbone.ParentsView = Backbone.TemplateView.extend({
         el: ".container",
@@ -130,28 +225,5 @@
         }
     })
 
-    Backbone.SignUpView = Backbone.TemplateView.extend({
-        el: ".container",
-        view: "teacher-login",
-        events: {
-            "click #login": "login"
-        },
-        login: function(event) {
-            event.preventDefault();
-            // debugger;
-            var x = {
-                login: this.el.querySelector("input[name='teacher']").value
-            }
-            this.model.add(x, {
-                validate: true
-            });
-            console.log("yay!")
-        }
-    })
-
-    Backbone.HomeView = Backbone.TemplateView.extend({
-        el: ".container",
-        view: "homeTemp"
-    })
 
 })(typeof module === "object" ? module.exports : window)
