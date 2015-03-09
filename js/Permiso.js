@@ -144,11 +144,8 @@
         el: ".container",
         view: "tripsview",
         events: {
-            "click #dashboardex": "dashboardex",
+            "click #trips": "trips",
             "submit form.login": "trips"
-        },
-        dashboardex: function(event) {
-            event.preventDefault();
         },
         trips: function(event) {
             event.preventDefault();

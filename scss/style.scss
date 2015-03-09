@@ -139,6 +139,12 @@ input {
     display: inline-block;
     margin-top: 15%; //18%
 }
+#teacherloginbutton{
+    margin-top: 0;
+}
+#teacherregisterbutton {
+     margin-top: 0;
+}
 .menu {
     display: block;
     height: 76px;
@@ -239,7 +245,7 @@ header {
     border-radius: 7px;
     color: #2ecc71;
     font-size: 20px;
-    transform: translateY(350px);
+    transform: translateY(400px); //350px
     margin-left: 40px;
     text-align: center;
 }
